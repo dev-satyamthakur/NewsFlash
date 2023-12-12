@@ -14,5 +14,11 @@ object Dependencies {
     val composeUiTestJunit4 by lazy { "androidx.compose.ui:ui-test-junit4" }
     val composeUiTooling by lazy { "androidx.compose.ui:ui-tooling" }
     val composeUiTestManifest by lazy { "androidx.compose.ui:ui-test-manifest" }
+    const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+    const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
 
+}
+
+object Modules {
+    const val utilities = ":utilities"
 }

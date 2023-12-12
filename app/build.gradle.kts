@@ -66,5 +66,8 @@ dependencies {
     androidTestImplementation(Dependencies.composeUiTestJunit4)
     debugImplementation(Dependencies.composeUiTooling)
     debugImplementation(Dependencies.composeUiTestManifest)
+    implementation(Dependencies.navigationCompose)
+
+    implementation(project(Modules.utilities))
 
 }

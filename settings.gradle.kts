@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NewsFlash"
 include(":app")
+include(":utilities")
