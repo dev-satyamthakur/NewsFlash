@@ -9,13 +9,15 @@ object Dependencies {
     val composeUiToolingPreview by lazy { "androidx.compose.ui:ui-tooling-preview" }
     val composeMaterial3 by lazy { "androidx.compose.material3:material3" }
     val junit by lazy { "junit:junit:${Versions.junit}" }
-    val junitExt by lazy { "androidx.test.ext:junit:1.1.5" }
+    val junitExt by lazy { "androidx.test.ext:junit:${Versions.testExtJunit}" }
     val espressoCore by lazy { "androidx.test.espresso:espresso-core:${Versions.espressoCore}" }
     val composeUiTestJunit4 by lazy { "androidx.compose.ui:ui-test-junit4" }
     val composeUiTooling by lazy { "androidx.compose.ui:ui-tooling" }
     val composeUiTestManifest by lazy { "androidx.compose.ui:ui-test-manifest" }
-    const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
-    const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
+    val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
+
+    val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
+    val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
 
 }
 

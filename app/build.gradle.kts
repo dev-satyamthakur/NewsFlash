@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -54,7 +56,7 @@ dependencies {
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.lifecycleRuntimeKtx)
     implementation(Dependencies.activityCompose)
-    implementation(Dependencies.composeBom)
+    implementation(platform(Dependencies.composeBom))
     implementation(Dependencies.composeUi)
     implementation(Dependencies.composeUiGraphics)
     implementation(Dependencies.composeUiToolingPreview)
@@ -62,12 +64,17 @@ dependencies {
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)
     androidTestImplementation(Dependencies.espressoCore)
-    androidTestImplementation(Dependencies.composeBom)
+    androidTestImplementation(platform(Dependencies.composeBom))
     androidTestImplementation(Dependencies.composeUiTestJunit4)
     debugImplementation(Dependencies.composeUiTooling)
     debugImplementation(Dependencies.composeUiTestManifest)
-    implementation(Dependencies.navigationCompose)
 
     implementation(project(Modules.utilities))
 
+    implementation(Dependencies.daggerHilt)
+    kapt(Dependencies.daggerHiltCompiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
