@@ -26,6 +26,9 @@ object Dependencies {
     val retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
     val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+
+    val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
+    val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinxCoroutines}"
 }
 
 object Modules {

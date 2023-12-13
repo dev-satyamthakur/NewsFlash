@@ -92,6 +92,10 @@ dependencies {
     implementation(Dependencies.moshi)
     implementation(Dependencies.okhttp)
     implementation(Dependencies.loggingInterceptor)
+
+    // Coroutines
+    implementation(Dependencies.kotlinxCoroutinesCore)
+    implementation(Dependencies.kotlinxCoroutinesAndroid)
 }
 
 kapt {

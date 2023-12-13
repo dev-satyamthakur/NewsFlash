@@ -14,4 +14,6 @@ object Versions {
     const val retrofit = "2.9.0"
     const val moshi = "1.9.3"
     const val okhttp = "5.0.0-alpha.2"
+
+    const val kotlinxCoroutines = "1.7.3"
 }
