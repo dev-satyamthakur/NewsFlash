@@ -9,4 +9,9 @@ object Versions {
     const val appCompat = "1.6.1"
     const val navigationCompose = "2.7.5"
     const val daggerHilt = "2.44"
+    const val hiltNavigationCompose = "1.0.0"
+
+    const val retrofit = "2.9.0"
+    const val moshi = "1.9.3"
+    const val okhttp = "5.0.0-alpha.2"
 }

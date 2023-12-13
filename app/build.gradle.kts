@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -20,6 +22,13 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField(
+            type = "String",
+            name = "NEWS_API_KEY",
+            value = "\"${project.rootProject.file("secrets.properties").readText().split("=")[1].trim()}\""
+        )
+
     }
 
     buildTypes {
@@ -40,6 +49,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -73,6 +83,15 @@ dependencies {
 
     implementation(Dependencies.daggerHilt)
     kapt(Dependencies.daggerHiltCompiler)
+    implementation(Dependencies.hiltNavigationCompose)
+
+    // Networking
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitConverterGson)
+    implementation(Dependencies.retrofitConverterMoshi)
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.okhttp)
+    implementation(Dependencies.loggingInterceptor)
 }
 
 kapt {

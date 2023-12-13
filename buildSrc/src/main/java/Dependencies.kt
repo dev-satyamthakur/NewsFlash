@@ -18,7 +18,14 @@ object Dependencies {
 
     val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
     val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+    val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
 
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    val retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
 }
 
 object Modules {
