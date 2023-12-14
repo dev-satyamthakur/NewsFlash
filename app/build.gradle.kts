@@ -102,6 +102,10 @@ dependencies {
 
     // SplashScreen
     implementation(Dependencies.coreSplashScreen)
+
+    // Coil
+    implementation(Dependencies.coil)
+    implementation(Dependencies.coilCompose)
 }
 
 kapt {

@@ -18,4 +18,6 @@ object Versions {
     const val kotlinxCoroutines = "1.7.3"
 
     const val coreSplashScreen = "1.0.0"
+
+    const val coil = "2.5.0"
 }

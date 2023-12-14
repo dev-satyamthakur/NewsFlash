@@ -1,27 +1,23 @@
 package com.satyamthakur.newsflash.ui.screens
 
 import android.util.Log
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.VerticalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.satyamthakur.newsflash.BuildConfig
 import com.satyamthakur.newsflash.ui.components.Loader
+import com.satyamthakur.newsflash.ui.components.NewsRowComponent
 import com.satyamthakur.newsflash.ui.viewmodel.NewsViewmodel
 import com.satyamthakur.utilities.ResourceState
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     newsViewmodel: NewsViewmodel = hiltViewModel()
@@ -29,9 +25,20 @@ fun HomeScreen(
 
     val newsResponse by newsViewmodel.news.collectAsState()
 
-    Surface(
-        modifier = Modifier.fillMaxSize()
+    val pagerState = rememberPagerState(
+        initialPage = 0,
+        initialPageOffsetFraction = 0f
     ) {
+        100
+    }
+
+    VerticalPager(
+        state = pagerState,
+        modifier = Modifier.fillMaxSize(),
+        pageSize = PageSize.Fill,
+        pageSpacing = 8.dp
+    ) { page: Int ->
+
         when (newsResponse) {
             is ResourceState.Loading -> {
                 Loader()
@@ -41,11 +48,9 @@ fun HomeScreen(
             is ResourceState.Success -> {
                 Log.d("MYAPPTAG", "Inside Success")
                 val response = (newsResponse as ResourceState.Success).data
-                LazyColumn {
-                    items(response.articles!!.size) {
-                        Text(text = response.articles[it]!!.title.toString(),
-                            modifier = Modifier.padding(8.dp))
-                    }
+
+                if (response.articles!!.isNotEmpty()) {
+                    NewsRowComponent(page, response.articles[page]!!)
                 }
             }
 
@@ -53,7 +58,9 @@ fun HomeScreen(
                 val error = newsResponse as ResourceState.Error
                 Log.d("MYAPPTAG", "Inside Error $error")
             }
+
         }
     }
+
 
 }
