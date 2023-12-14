@@ -29,6 +29,8 @@ object Dependencies {
 
     val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinxCoroutines}"
     val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinxCoroutines}"
+
+    val coreSplashScreen = "androidx.core:core-splashscreen:${Versions.coreSplashScreen}"
 }
 
 object Modules {

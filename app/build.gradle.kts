@@ -99,6 +99,9 @@ dependencies {
     // Coroutines
     implementation(Dependencies.kotlinxCoroutinesCore)
     implementation(Dependencies.kotlinxCoroutinesAndroid)
+
+    // SplashScreen
+    implementation(Dependencies.coreSplashScreen)
 }
 
 kapt {

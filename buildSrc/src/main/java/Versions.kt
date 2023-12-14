@@ -16,4 +16,6 @@ object Versions {
     const val okhttp = "5.0.0-alpha.2"
 
     const val kotlinxCoroutines = "1.7.3"
+
+    const val coreSplashScreen = "1.0.0"
 }
