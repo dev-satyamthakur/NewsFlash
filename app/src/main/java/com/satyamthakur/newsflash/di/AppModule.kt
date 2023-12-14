@@ -4,6 +4,7 @@ import com.satyamthakur.newsflash.data.AppConstants.NEWS_BASE_URL
 import com.satyamthakur.newsflash.data.api.ApiService
 import com.satyamthakur.newsflash.data.datasource.NewsDataSource
 import com.satyamthakur.newsflash.data.datasource.NewsDataSourceImpl
+import com.satyamthakur.newsflash.ui.repository.NewsRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -52,8 +53,16 @@ class AppModule {
         return retrofit.create(ApiService::class.java)
     }
 
+    @Singleton
+    @Provides
     fun providesNewsDataSource(apiService: ApiService): NewsDataSource {
         return NewsDataSourceImpl(apiService)
+    }
+
+    @Singleton
+    @Provides
+    fun providesNewsRespository(newsDataSource: NewsDataSource): NewsRepository {
+        return NewsRepository(newsDataSource)
     }
 
 }

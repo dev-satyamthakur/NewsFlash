@@ -85,6 +85,9 @@ dependencies {
     kapt(Dependencies.daggerHiltCompiler)
     implementation(Dependencies.hiltNavigationCompose)
 
+    // Navigation Compose
+    implementation(Dependencies.navigationCompose)
+
     // Networking
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitConverterGson)
